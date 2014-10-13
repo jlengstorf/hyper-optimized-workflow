@@ -4,7 +4,7 @@ li {
   margin: 0 0 12.5px;
 }
 
-h1+p {
+h1 + p {
   margin-top: 0;
 }
 
@@ -15,7 +15,7 @@ footer {
   max-width: 90%;
   margin: 0 auto 10px;
   padding: 15px;
-  background: #eee;
+  background: #eeeeee;
   border: 1px solid #e1e1e1;
   border-radius: 10px;
 }
