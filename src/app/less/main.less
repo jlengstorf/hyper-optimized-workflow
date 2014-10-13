@@ -1,0 +1,170 @@
+/*! Grunt, Gulp, and Broccoli Workshop */
+
+/*
+ * INCLUDES
+ *****************************************************************************/
+
+@import 'inc/fonts.less';
+@import 'inc/animations.less';
+@import 'inc/mixins.less';
+
+
+/*
+ * VARIABLES
+ *****************************************************************************/
+
+@dark-color: #311b12;
+// @light-color: red;
+@light-color: #f9fdf8;
+
+
+/*
+ * GENERAL LAYOUT
+ *****************************************************************************/
+
+html {
+    background-color: @light-color;
+    color: lighten(@dark-color, 15%);
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
+#container {
+    text-align: center;
+}
+
+h1 {
+    margin: 20px 0 0;
+    color: @dark-color;
+    font-family: 'monstro-web', sans-serif;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+
+    @media (min-width: 650px) {
+        margin-top: 50px;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0 auto 10px;
+    max-width: 450px;
+}
+
+
+/*
+ * MAIN CONTENT AREA
+ *****************************************************************************/
+
+#container {
+    text-align: center;
+}
+
+/*
+ * HOME PAGE
+ *****************************************************************************/
+
+.monsters {
+    width: 300px;
+    margin: 20px auto 30px;
+    padding: 0;
+    border: 2px solid @dark-color;
+
+    @media (min-width: 650px) {
+        width: 600px;
+    }
+
+    li {
+        list-style: none;
+
+        &.screedle {
+            .monster-box(#00c0ff);
+
+            a {
+                padding-top: 105px;
+                padding-right: 10px;
+                text-align: right;
+                transform: rotate(270deg);
+            }
+        }
+        
+        &.beedle {
+            .monster-box(#f000ff);
+
+            a {
+                padding-top: 5px;
+                padding-left: 10px;
+                text-align: left;
+            }
+        }
+
+        &.deedle {
+            .monster-box(#ffcc00);
+
+            a {
+                padding-top: 105px;
+                padding-right: 10px;
+                text-align: right;
+            }
+        }
+
+        &.jeffrey {
+            .monster-box(#00ff12);
+
+            a {
+                padding-top: 5px;
+            }
+        }
+    }
+}
+
+
+/*
+ * MONSTER BIO
+ *****************************************************************************/
+
+.monster-bio {
+    &.screedle { .monster-bio(#00c0ff); }
+    &.beedle   { .monster-bio(#f000ff); }
+    &.deedle   { .monster-bio(#ffcc00); }
+    &.jeffrey  { .monster-bio(#00ff12); }
+}
+
+.back {
+    font-size: .85em;
+}
+
+
+/*
+ * FOOTER
+ *****************************************************************************/
+
+footer {
+    max-width: 600px;
+    margin: 40px auto 10px;
+    padding: 10px;
+    border-top: 1px solid darken(@light-color, 5%);
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            color: lighten(desaturate(@dark-color, 25%), 35%);
+            font-size: 11px;
+            line-height: 15px;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+}

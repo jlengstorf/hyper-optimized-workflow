@@ -1,0 +1,9 @@
+    <h1>{{ Page.title() }}</h1>
+    <div class="monster-bio {{ monster.name | lowercase }}">
+        <img src="{{ monster.photo }}" 
+             alt="{{ monster.name }}">
+    </div>
+    <p>{{ monster.description }}</p>
+    <p class="back">
+        <a href="/">&larr; Back to All Monsters</a>
+    </p>

@@ -1,0 +1,23 @@
+/*
+ * ANIMATIONS
+ *****************************************************************************/
+
+// Makes the monsters float around a little
+@keyframes floatme {
+    0%, 100%   { transform: translate3d(1%, 1%, 0) scale(1); }
+    10%        { transform: translate3d(-1%, -6%, 0) scale(1.01); }
+    20%        { transform: translate3d(-1%, 2%, 0) scale(1.07); }
+    30%        { transform: translate3d(1%, -4%, 0) scale(1.02); }
+    40%        { transform: translate3d(1%, 7%, 0) scale(.99); }
+    50%        { transform: translate3d(-1%, -1%, 0) scale(.94); }
+    60%        { transform: translate3d(-1%, 5%, 0) scale(.89); }
+    70%        { transform: translate3d(1%, -2%, 0) scale(.97); }
+    80%        { transform: translate3d(1%, 7%, 0) scale(1.05); }
+    90%        { transform: translate3d(-1%, -9%, 0) scale(1.03); }
+}
+
+@keyframes spinme {
+    0%   { transform: rotate(0deg); }
+    50%  { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}

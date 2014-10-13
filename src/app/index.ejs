@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="gruntGulpBroccoliWorkshop" ng-controller="MonsterCtrl">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+
+    <title>{{ Page.title() }}</title>
+
+    <link rel="stylesheet" href="/css/combined-grunt.min.css">
+    <!-- <link rel="stylesheet" href="/css/combined-gulp.min.css"> -->
+
+</head>
+
+<body>
+
+    <div id="container" ng-view></div>
+
+    <footer>
+        <ul class="credits">
+            <li>
+                "Hyper-Optimized Workflow" by 
+                <a href="http://lengstorf.com/">Jason Lengstorf</a>
+            </li>
+            <li><a href="http://git.io/0Qb7zw">View Source on GitHub</a></li>
+        </ul>
+    </footer>
+
+    <!-- JS Dependencies -->
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-route/angular-route.min.js"></script>
+
+    <!-- App-Specific JS, combined and minified -->
+    <script src="/js/combined-grunt.min.js"></script>
+    <!-- <script src="/js/combined-gulp.min.js"></script> -->
+
+    <!-- 
+    LiveReload JS
+    TODO Remove for production
+    -->
+    <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+
+</body>
+
+</html>

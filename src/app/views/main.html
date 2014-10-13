@@ -1,0 +1,17 @@
+    <h1>{{ Page.title() }}</h1>
+    <ul class="monsters">
+        <li class="{{ monster.name | lowercase }}" 
+            ng-repeat="monster in monsters">
+            <!--
+            FIXME Figure out why the 404 is being triggered
+            -->
+            <img src="/images/thumb-{{ monster.name | lowercase }}.png"
+                 alt="{{ monster.name }}">
+            <a href="/#/monster/{{ monster.name | lowercase }}/">
+                {{ monster.name }}
+            </a>
+        </li>
+    </ul>
+    <p>
+        Our monsters are a friendly bunch. They only live under your bed because they&rsquo;re too polite to ask if they can snuggle.
+    </p>
