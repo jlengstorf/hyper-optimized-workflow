@@ -14,6 +14,21 @@ module.exports = function(grunt) {
           cleancss: true // Minifies CSS output
         },
         files: { 'src/app/css/combined-grunt.min.css': [ 'src/app/less/{,*/}*.less', '!src/app/less/test.less' ] }
+      },
+      testless: {
+        files: {
+          'demo/css/less-test.css': 'demo/less/less-test.less'
+        }
+      },
+      testautoprefixer: {
+        files: {
+          'demo/css/autoprefixer-test.css': 'demo/less/autoprefixer-test.less'
+        }
+      },
+      testuncss: {
+        files: {
+          'demo/css/uncss-test.css': 'demo/less/uncss-test.less'
+        }
       }
     },
 
@@ -21,6 +36,21 @@ module.exports = function(grunt) {
     autoprefixer: {
       dev: {
         src: 'src/app/css/combined-grunt.min.css'
+      },
+      testautoprefixer: {
+        src: 'demo/css/autoprefixer-test.css'
+      },
+      testuncss: {
+        src: 'demo/css/uncss-test.css'
+      }
+    },
+
+    // Removes unused CSS selectors
+    uncss: {
+      testuncss: {
+        files: {
+          'demo/css/uncss-test-clean.css': 'demo/index.html'
+        }
       }
     },
 
@@ -43,16 +73,22 @@ module.exports = function(grunt) {
 
     // Checks JS for syntax issues using JSHint
     jshint: {
+        options: {
+          jshintrc: true,
+          reporter: require('jshint-stylish'),
+        },
         dev: {
-          options: {
-            jshintrc: true,
-            reporter: require('jshint-stylish'),
-          },
           src: [
             'src/{,*/}*.js',
             'src/app/js/{,*/}*.js',
             '!src/app/js/combined-grunt.min.js'
           ]
+        },
+        testfail: {
+          src: 'demo/js/jshint-test-fail.js'
+        },
+        testpass: {
+          src: 'demo/js/jshint-test-pass.js'
         }
     },
 
@@ -74,7 +110,7 @@ module.exports = function(grunt) {
         options: {
           livereload: true
         }
-      } 
+      }
     },
 
     // Watches back-end files for changes, restarts the server
@@ -139,8 +175,7 @@ module.exports = function(grunt) {
     'less:dev',
     'autoprefixer:dev',
     'jshint:dev',
-    'uglify:scripts',
-    'todo'
+    'uglify:scripts'
   ]);
 
   // Starts a server and runs nodemon and watch using concurrent
@@ -148,5 +183,11 @@ module.exports = function(grunt) {
 
   // Tests the custom plugin
   grunt.registerTask('test', [ 'testplugin' ]);
+
+  // Tests autoprefixer
+  grunt.registerTask('testautoprefixer', [ 'less:testautoprefixer', 'autoprefixer:testautoprefixer' ]);
+
+  // Tests UnCSS
+  grunt.registerTask('testuncss', [ 'less:testuncss', 'autoprefixer:testuncss', 'uncss:testuncss' ]);
 
 };
